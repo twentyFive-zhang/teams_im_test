@@ -1,0 +1,97 @@
+{
+  "name": "@jiang-liuer/teams_im_ui",
+  "version": "0.0.51",
+  "description": "A react library developed with dumi",
+  "license": "MIT",
+  "module": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "father build",
+    "build:watch": "father dev",
+    "createCss": "tailwindcss -o ./src/styles/build.css --minify",
+    "createIcon": "ts-node scripts/svg && git add . && git commit -m 'feat: icon'",
+    "dev": "dumi dev",
+    "docs:build": "dumi build",
+    "doctor": "father doctor",
+    "lint": "npm run lint:es && npm run lint:css",
+    "lint:css": "stylelint \"{src,test}/**/*.{css,less}\"",
+    "lint:es": "eslint \"{src,test}/**/*.{js,jsx,ts,tsx}\"",
+    "prepare": "husky install && dumi setup",
+    "prepublishOnly": "npm run createCss && father doctor && npm run build",
+    "start": "npm run dev"
+  },
+  "commitlint": {
+    "extends": [
+      "@commitlint/config-conventional"
+    ]
+  },
+  "lint-staged": {
+    "*.{md,json}": [
+      "prettier --write --no-error-on-unmatched-pattern"
+    ],
+    "*.{css,less}": [
+      "stylelint --fix --allow-empty-input",
+      "prettier --write"
+    ],
+    "*.{js,jsx}": [
+      "eslint --fix",
+      "prettier --write"
+    ],
+    "*.{ts,tsx}": [
+      "eslint --fix",
+      "prettier --parser=typescript --write"
+    ]
+  },
+  "dependencies": {
+    "@ant-design/icons": "^5.3.1",
+    "big-integer": "^1.6.52",
+    "classnames": "^2.5.1",
+    "dayjs": "^1.11.10",
+    "emoji-picker-react": "^4.8.0",
+    "emoji-regex": "^10.3.0",
+    "fast-xml-parser": "^4.3.5",
+    "lodash": "^4.17.21",
+    "tailwindcss": "^3.4.1",
+    "valtio": "^1.13.2"
+  },
+  "devDependencies": {
+    "@babel/runtime": "^7.24.0",
+    "@commitlint/cli": "^17.1.2",
+    "@commitlint/config-conventional": "^17.1.0",
+    "@types/lodash": "^4.14.202",
+    "@types/node": "^20.11.24",
+    "@types/react": "^18.0.0",
+    "@types/react-dom": "^18.0.0",
+    "@umijs/lint": "^4.0.0",
+    "@umijs/plugins": "^4.1.6",
+    "autoprefixer": "^10.4.18",
+    "dumi": "^2.2.13",
+    "eslint": "^8.23.0",
+    "father": "^4.1.0",
+    "husky": "^8.0.1",
+    "lint-staged": "^13.0.3",
+    "prettier": "^3.2.5",
+    "prettier-plugin-organize-imports": "^3.0.0",
+    "prettier-plugin-packagejson": "^2.2.18",
+    "prettier-plugin-tailwindcss": "^0.5.11",
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0",
+    "stylelint": "^14.9.1",
+    "ts-loader": "^9.5.1",
+    "ts-node": "^10.9.2"
+  },
+  "peerDependencies": {
+    "antd": "^5.15.0",
+    "react": ">=16.9.0",
+    "react-dom": ">=16.9.0"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "authors": [
+    "1097983662@qq.com"
+  ]
+}

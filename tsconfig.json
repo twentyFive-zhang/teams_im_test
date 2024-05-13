@@ -1,0 +1,17 @@
+{
+  "compilerOptions": {
+    "strict": true,
+    "declaration": true,
+    "skipLibCheck": true,
+    "esModuleInterop": true,
+    "jsx": "react",
+    "baseUrl": "./",
+    "paths": {
+      "@@/*": [".dumi/tmp/*"],
+      "@jiang-liuer/teams_im_ui": ["src"],
+      "@jiang-liuer/teams_im_ui/*": ["src/*", "*"]
+    }
+  },
+  "include": [".dumirc.ts", "src/**/*", "./**/*.d.ts"],
+  "exclude": ["src/**/libs/*"]
+}
